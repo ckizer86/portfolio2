@@ -5,7 +5,6 @@ $(document).ready(function() {
             'https://api.spoonacular.com/food/videos/search?apiKey=064b936ced54438dbcacf34ce54cda10&query=' +
             test +
             '&number=20' //this is the query that would get called based on the dropdown selection
-        console.log(test)
         $.get(url, function(res) {
 
             function cardtable() {
