@@ -1,59 +1,46 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="description" content="test recipe">
     <title>Recipe Site Test</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var test = "Japanese" //This will be the dropdown option variable inside of the form
-            var url = 'https://api.spoonacular.com/food/videos/search?apiKey=064b936ced54438dbcacf34ce54cda10&query=' + test + '&number=20' //this is the query that would get called based on the dropdown selection
-
-            $.get(url, function(res) {
-                console.log(res)
-
-                function cardtable() {
-                    var carding = "";
-                    for (var i = 0; i < res.videos.length; i++) {
-                        carding +=
-                            "<div class='card'>" + "<div class='card-body'>" +
-                            "<h5 class='card-title'>" + res.videos[i].title + "</h5>" + "<div class='video-container'>" + "<iframe width = '250' src='https://www.youtube.com/embed/" + res.videos[i].youTubeId + "' style='bottom:0'  title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div></div></div>"
-                    }
-                    return carding;
-                }
-                var cards = cardtable();
-
-                $(".card-group").html(cards)
-            })
-        })
-    </script>
-    <style>
-        .card {
-            display: inline-block;
-            vertical-align: top;
-            flex: 1;
-            min-width: 250px;
-            width: 20%;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-        }
-        
-        .card-body {
-            flex: 0;
-        }
-        
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
+        <div class="row">
+            <div class="col">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Select Cuisine to explore recipes</label>
+                        <select class="form-control cuisines" id="exampleFormControlSelect1">
+                            <option>Select a Cuisine</option>
+                            <option>American</option>
+                            <option>Cajun</option>
+                            <option>Chinese</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Italian</option>
+                            <option>Japanese</option>
+                            <option>Mexican</option>
+                            <option>Thai</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block cuisines-select">Submit</button>
+                </form>
+            </div>
+        </div>
         <div class="row">
             <div class="col card-group">
             </div>
