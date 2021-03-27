@@ -7,7 +7,6 @@ $(document).ready(function() {
             '&number=20' //this is the query that would get called based on the dropdown selection
         console.log(test)
         $.get(url, function(res) {
-            console.log(res)
 
             function cardtable() {
                 var carding = "";
